@@ -56,22 +56,22 @@ function setSlide(n) {
 
 setSlide(slideIndex);
 
-// Clock
-function updateClock() {
-  const now = new Date();
-  const day = now.toLocaleDateString("en-GB", { weekday: "long" });
-  const dayOfMonth = String(now.getDate()).padStart(2, "0");
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  const year = now.getFullYear();
-  const time = now.toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
-  const dateString = `${
-    day.charAt(0).toUpperCase() + day.slice(1).toLowerCase()
-  } ${dayOfMonth}-${month}-${year} ${time}`;
-  document.getElementById("codes").textContent = dateString;
-  setTimeout(updateClock, 1000);
-}
-updateClock();
+// // Clock
+// function updateClock() {
+//   const now = new Date();
+//   const day = now.toLocaleDateString("en-GB", { weekday: "long" });
+//   const dayOfMonth = String(now.getDate()).padStart(2, "0");
+//   const month = String(now.getMonth() + 1).padStart(2, "0");
+//   const year = now.getFullYear();
+//   const time = now.toLocaleTimeString("en-GB", {
+//     hour: "2-digit",
+//     minute: "2-digit",
+//     second: "2-digit",
+//   });
+//   const dateString = `${
+//     day.charAt(0).toUpperCase() + day.slice(1).toLowerCase()
+//   } ${dayOfMonth}-${month}-${year} ${time}`;
+//   document.getElementById("codes").textContent = dateString;
+//   setTimeout(updateClock, 1000);
+// }
+// updateClock();
