@@ -9,4 +9,3 @@ A personalized startpage that suits my needs, based on the original project.
 ## Credits
 
 - Orignal repo by [CaffeineOnIce](https://github.com/CaffeineOnIce/startpage).
-  1
