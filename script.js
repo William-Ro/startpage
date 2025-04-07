@@ -1,7 +1,7 @@
 // Slideshow
 const imagePath = "assets/";
 const len = 23;
-const images = Array.from({ length: len }, (_, i) => `side${i + 1}.gif`);
+const images = Array.from({ length: len }, (_, i) => `side${i + 1}.jpg`);
 
 function getSeed() {
   const now = new Date();
