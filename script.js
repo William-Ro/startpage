@@ -1,7 +1,5 @@
-// Slideshow
 const imagePath = "assets/";
 const len = 33;
-const images = Array.from({ length: len }, (_, i) => `side${i + 1}.gif`);
 
 function getSeed() {
   const now = new Date();
@@ -35,22 +33,31 @@ if (!slideIndex) {
 }
 
 localStorage.setItem("lastAccessedDate", new Date().toDateString());
+
 const slideshow = document.getElementById("slideshow");
-images.forEach((img, i) => {
-  slideshow.innerHTML += `<div class="mySlides"><img src="${imagePath}${img}" style="cursor:pointer;" onclick="changeSlide(1)"></div>`;
-});
+
+function getImageSrc(index) {
+  return `${imagePath}side${index}.gif`;
+}
+
+function showSlide(index) {
+  slideshow.innerHTML = `<div class="mySlides" style="opacity:1"><img src="${getImageSrc(index)}" style="cursor:pointer;" onclick="changeSlide(1)"></div>`;
+  preloadAdjacent(index);
+}
+
+function preloadAdjacent(index) {
+  const next = index >= len ? 1 : index + 1;
+  const img = new Image();
+  img.src = getImageSrc(next);
+}
 
 function changeSlide(n) {
   setSlide(slideIndex + n);
 }
 
 function setSlide(n) {
-  const slides = document.getElementsByClassName("mySlides");
-  slideIndex = n > slides.length ? 1 : n < 1 ? slides.length : n;
-  [...slides].forEach((s, i) => {
-    s.style.opacity = i === slideIndex - 1 ? "1" : "0";
-    s.style.transition = "opacity .7s";
-  });
+  slideIndex = n > len ? 1 : n < 1 ? len : n;
+  showSlide(slideIndex);
   localStorage.setItem("slideIndex", slideIndex);
 }
 
